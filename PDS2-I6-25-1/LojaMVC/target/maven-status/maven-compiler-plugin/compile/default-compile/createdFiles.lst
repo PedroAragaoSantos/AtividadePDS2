@@ -1,0 +1,16 @@
+controller\CadastroUsuariosController.class
+controller\PrincipalController.class
+controller\ClienteViewController.class
+model\Usuario.class
+principal\App.class
+dal\ConexaoBD.class
+model\GenericDAO.class
+controller\LoginController.class
+model\LoginDAO.class
+util\Validacoes.class
+module-info.class
+model\Cliente.class
+controller\ListagemUsuariosController.class
+model\UsuarioDAO.class
+util\AlertaUtil.class
+model\ClienteDAO.class
