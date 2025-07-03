@@ -36,7 +36,7 @@ public class App extends Application {
         telaLogin.show();
     }
 
-    public static void main(String[] args) throws SQLException {
+    /*public static void main(String[] args) throws SQLException {
         
         ClienteDAO clienteDAO = new ClienteDAO();
         
@@ -55,6 +55,6 @@ public class App extends Application {
         clienteDAO.listarClientes();
         
         launch();
-    }
+    }*/
 
 }

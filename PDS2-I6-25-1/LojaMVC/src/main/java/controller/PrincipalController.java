@@ -33,6 +33,11 @@ public class PrincipalController {
 
     @FXML
     private Menu menuCadastro;
+    
+    
+        @FXML
+    private MenuItem menuCadastroCliente;
+
 
     @FXML
     private MenuItem menuCadastroUsuarios;
@@ -48,6 +53,11 @@ public class PrincipalController {
 
     @FXML
     private MenuItem menuSobre;
+    
+      @FXML
+    void menuCadastroClienteClick(ActionEvent event) {
+
+    }
 
     @FXML
     void menuCadastroUsuariosClick(ActionEvent event) throws IOException {
