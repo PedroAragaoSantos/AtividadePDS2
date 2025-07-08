@@ -1,53 +1,125 @@
 package model;
 
 import dal.ConexaoBD;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ClienteDAO {
-    
-    public void inserirCliente(Cliente cliente) throws SQLException{
-        String sql = "INSERT INTO clientes(nome, telefone, endereco, data_nascimento) VALUES (?,?,?,?)";
-        
-        try(Connection conn =  ConexaoBD.conectar();
-                PreparedStatement stmt = conn.prepareStatement(sql)){
-           
+
+    // Salvar (inserir) cliente
+    public void salvar(Cliente cliente) throws SQLException {
+        String sql = "INSERT INTO clientes (nome, telefone, endereco, data_nascimento) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = ConexaoBD.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getTelefone());
             stmt.setString(3, cliente.getEndereco());
             stmt.setDate(4, cliente.getDataNascimento());
-            
+
             stmt.executeUpdate();
-            
-            System.out.println("Cliente inserido com sucesso!");
-        }catch(SQLException e){
-            System.out.println("Erro ao inserir cliente: " + e.getMessage());
         }
-        }
+    }
+
+    public void alterarCliente(Cliente cliente) throws SQLException {
+    String sql = "UPDATE clientes SET nome = ?, telefone = ?, endereco = ?, data_nascimento = ? WHERE id = ?";
+
+    try (Connection conn = ConexaoBD.conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, cliente.getNome());
+        stmt.setString(2, cliente.getTelefone());
+        stmt.setString(3, cliente.getEndereco());
+        stmt.setDate(4, cliente.getDataNascimento());
+        stmt.setInt(5, cliente.getId()); // ESSENCIAL: usar o ID do cliente aqui
+
+        stmt.executeUpdate();
+        System.out.println("Cliente atualizado com sucesso!");
+    } catch (SQLException e) {
+        System.out.println("Erro ao atualizar cliente: " + e.getMessage());
+        throw e;
+    }
+}
+
     
-    public void listarClientes() throws SQLException{
+    // Alterar cliente existente
+    /*public void alterar(Cliente cliente) throws SQLException {
+        String sql = "UPDATE clientes SET nome = ?, telefone = ?, endereco = ?, data_nascimento = ? WHERE id = ?";
+
+        try (Connection conn = ConexaoBD.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getTelefone());
+            stmt.setString(3, cliente.getEndereco());
+            stmt.setDate(4, cliente.getDataNascimento());
+            stmt.setInt(5, cliente.getId());
+
+            stmt.executeUpdate();
+        }
+    }*/
+
+    // Excluir cliente por ID
+    public void excluir(int id) throws SQLException {
+        String sql = "DELETE FROM clientes WHERE id = ?";
+
+        try (Connection conn = ConexaoBD.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+    }
+
+    // Buscar todos os clientes
+    public ObservableList<Cliente> selecionarClientes() throws SQLException {
+        ObservableList<Cliente> lista = FXCollections.observableArrayList();
         String sql = "SELECT * FROM clientes";
+
+        try (Connection conn = ConexaoBD.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setDataNascimento(rs.getDate("data_nascimento"));
+                lista.add(cliente);
+            }
+        }
+
+        return lista;
+    }
+
+    // Buscar um cliente por ID
+    public Cliente selecionarCliente(int id) throws SQLException {
+        Cliente cliente = null;
+        String sql = "SELECT * FROM clientes WHERE id = ?";
+
+        try (Connection conn = ConexaoBD.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setDataNascimento(rs.getDate("data_nascimento"));
+            }
+
+            rs.close();
+        }
+        return cliente;
+    }
         
-        try(Connection conn = ConexaoBD.conectar();
-                PreparedStatement stmt = conn.prepareStatement(sql)){
-                ResultSet rs = stmt.executeQuery();
-                
-            while(rs.next()){
-                int id = rs.getInt("id");
-                String nome = rs.getString("nome");
-                String telefone = rs.getString("telefone");
-                String endereco = rs.getString("endereco");
-                Date nascimento = rs.getDate("data_nascimento");
-                
-                System.out.println("ID: " + id + "\nNome: " + nome + "\nTelefone: " + telefone +
-                        "\nEndereço: " + endereco + "\nData de nascimento: " + nascimento);
-            }           
-        }catch(SQLException e){
-            System.out.println("Erro ao listar clientes: " + e.getMessage());
-    }
-    }
     
 }

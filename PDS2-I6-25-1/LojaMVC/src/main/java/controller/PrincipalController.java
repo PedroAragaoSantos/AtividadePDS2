@@ -55,8 +55,15 @@ public class PrincipalController {
     private MenuItem menuSobre;
     
       @FXML
-    void menuCadastroClienteClick(ActionEvent event) {
+    void menuCadastroClienteClick(ActionEvent event) throws IOException {
+ URL url = new File("src/main/java/view/ClienteView.fxml").toURI().toURL();
+    FXMLLoader loader = new FXMLLoader(url);
+    Parent root = loader.load();
 
+    Stage telaCadastroUsuarios = new Stage();
+    telaCadastroUsuarios.setTitle("Cadastro de Usuários");
+    telaCadastroUsuarios.setScene(new Scene(root));
+    telaCadastroUsuarios.show();
     }
 
     @FXML
