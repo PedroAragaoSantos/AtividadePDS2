@@ -164,6 +164,43 @@ public class ListagemUsuariosController {
             AlertaUtil.mostrarErro("Erro", "Erro ao carregar usuários");
         }
     }
+    
+        @FXML
+    void TableViewClick(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 1) {
+            this.usuario = tabelaUsuarios.getSelectionModel().getSelectedItem();
+            if (this.usuario != null) {
+                URL url = new File("src/main/java/view/CadastroUsuarios.fxml").toURI().toURL();
+                FXMLLoader loader = new FXMLLoader(url);
+                Parent root = loader.load();
+
+                Stage telaCadastroUsuarios = new Stage();
+
+                CadastroUsuariosController cadc = loader.getController();
+
+                cadc.setStage(telaCadastroUsuarios);
+
+                telaCadastroUsuarios.setOnShown(evento -> {
+                    cadc.ajustarElementosJanela(this.usuario);
+                });
+                
+                cadc.setOnUsuarioSalvo(() -> {
+                    try{
+                        atualizarUsuariosTabela();
+                    } catch (SQLException ex){
+                        
+                    }
+                });
+
+                Scene scene = new Scene(root);
+
+                telaCadastroUsuarios.setTitle("Cadastro de Usuários");
+                telaCadastroUsuarios.setScene(scene);
+                telaCadastroUsuarios.show();
+            }
+        }
+    }
+
 
     //Método para buscar do banco de dados
     private ObservableList<Usuario> listarUsuarios() throws SQLException {
