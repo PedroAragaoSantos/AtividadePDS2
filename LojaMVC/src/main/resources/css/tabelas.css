@@ -1,0 +1,57 @@
+/* Estilo geral da TableView */
+.table-view {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-table-cell-border-color: #dddddd;
+    -fx-padding: 5;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Cabeçalho das colunas */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #c8c8c8);
+}
+
+.table-view .column-header, 
+.table-view .filler {
+    -fx-size: 30px;
+    -fx-border-color: transparent transparent #cccccc transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-alignment: center; /* centraliza o texto do cabeçalho */
+}
+
+/* Texto do cabeçalho */
+.table-view .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Células da tabela */
+.table-view .table-cell {
+    -fx-alignment: center; /* centraliza os dados das células */
+    -fx-padding: 5px;
+    -fx-text-fill: #333333;
+}
+
+/* Linhas alternadas com cores diferentes */
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Linha selecionada */
+.table-row-cell:selected {
+    -fx-background-color: #3399ff;
+    -fx-text-fill: white;
+}
+
+/* Foco da célula (retira o "glow" azul padrão) */
+.table-view:focused .table-row-cell:focused {
+    -fx-background-insets: 0;
+    -fx-background-color: #3399ff;
+}
