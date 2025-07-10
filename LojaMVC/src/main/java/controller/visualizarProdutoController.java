@@ -23,7 +23,7 @@ import model.Produto;
 import model.ProdutoDAO;
 import util.AlertaUtil;
 
-public class ItemVendaController {
+public class visualizarProdutoController {
 
     @FXML
     private Button btnExcluir;

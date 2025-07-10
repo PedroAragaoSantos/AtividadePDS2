@@ -19,11 +19,11 @@
    <children>
       <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="373.0" prefWidth="550.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Pane prefHeight="60.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="60.0" prefWidth="550.0" style="-fx-background-color: #ff6961;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutY="22.0" prefHeight="20.0" prefWidth="550.0" text="Cadastro de usuários">
+                  <Label alignment="CENTER" layoutY="4.0" prefHeight="20.0" prefWidth="550.0" text="Cadastro de usuários" textFill="#8d0000">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
                </children>
@@ -32,7 +32,7 @@
          <bottom>
             <Pane prefHeight="60.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                <children>
-                  <GridPane layoutX="-1.0" prefHeight="87.0" prefWidth="550.0">
+                  <GridPane layoutX="-1.0" prefHeight="87.0" prefWidth="550.0" style="-fx-background-color: #ff6961;">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -63,7 +63,7 @@
             </Pane>
          </bottom>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff6961;" BorderPane.alignment="CENTER">
                <children>
                   <GridPane hgap="50.0" layoutX="22.0" layoutY="21.0" prefHeight="198.0" prefWidth="459.0">
                     <columnConstraints>

@@ -5,16 +5,28 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.ProdutoViewController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" style="-fx-background-color: #ff6961;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoViewController">
    <children>
-      <TextArea fx:id="txtDescricaoProduto" layoutX="63.0" layoutY="98.0" prefHeight="124.0" prefWidth="475.0" />
-      <Label layoutX="63.0" layoutY="75.0" text="Descrição do produto:" />
-      <Label layoutX="144.0" layoutY="252.0" text="Valor:" />
-      <TextField fx:id="txtfdValor" layoutX="63.0" layoutY="275.0" prefHeight="25.0" prefWidth="193.0" />
-      <TextField fx:id="txtfdQuantidadeEstoque" layoutX="345.0" layoutY="275.0" prefHeight="25.0" prefWidth="193.0" />
-      <Label layoutX="370.0" layoutY="252.0" text="Quantidade em estoque:" />
-      <Button fx:id="btnCadastrarProduto" layoutX="244.0" layoutY="364.0" mnemonicParsing="false" onAction="#OnActionCadastrarProdutos" text="Cadastrar produto" />
+      <TextArea fx:id="txtDescricaoProduto" layoutX="63.0" layoutY="86.0" prefHeight="124.0" prefWidth="475.0" />
+      <Label layoutX="63.0" layoutY="69.0" text="Descrição do produto:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="231.0" text="Valor:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="txtfdValor" layoutX="63.0" layoutY="248.0" prefHeight="25.0" prefWidth="193.0" />
+      <TextField fx:id="txtfdQuantidadeEstoque" layoutX="63.0" layoutY="323.0" prefHeight="25.0" prefWidth="193.0" />
+      <Label layoutX="63.0" layoutY="306.0" text="Quantidade em estoque:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button fx:id="btnCadastrarProduto" layoutX="381.0" layoutY="286.0" mnemonicParsing="false" onAction="#OnActionCadastrarProdutos" prefHeight="40.0" prefWidth="157.0" text="Cadastrar produto" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -38,11 +38,11 @@
                <font>
                   <Font size="14.0" />
                </font></PasswordField>
-            <Button fx:id="bntLogar" mnemonicParsing="false" onAction="#bntLogarClick" prefHeight="30.0" prefWidth="110.0" text="Logar" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <Button fx:id="bntLogar" mnemonicParsing="false" onAction="#bntLogarClick" prefHeight="30.0" prefWidth="110.0" text="Logar" textFill="RED" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button fx:id="bntFechar" mnemonicParsing="false" onAction="#bntFecharClick" prefHeight="30.0" prefWidth="110.0" text="Fechar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="bntFechar" mnemonicParsing="false" onAction="#bntFecharClick" prefHeight="30.0" prefWidth="110.0" text="Fechar" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
@@ -58,6 +58,9 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <ImageView fx:id="imgBancoOnline" fitHeight="25.0" fitWidth="31.0" layoutX="398.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true" />
-      <Hyperlink fx:id="hpCadastro" layoutX="177.0" layoutY="304.0" onAction="#onClickhpCadastro" prefHeight="24.0" prefWidth="209.0" text="Não possui conta? Cadastre-se" />
+      <Hyperlink fx:id="hpCadastro" layoutX="177.0" layoutY="304.0" onAction="#onClickhpCadastro" prefHeight="24.0" prefWidth="209.0" text="Não possui conta? Cadastre-se" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Hyperlink>
    </children>
 </AnchorPane>

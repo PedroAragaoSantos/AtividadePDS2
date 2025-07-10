@@ -86,13 +86,13 @@ public class PrincipalController {
 
     @FXML
     void OnActionMenuRelatorioProdutos(ActionEvent event) throws IOException {
-        URL url = new File("src/main/java/view/ItemVenda.fxml").toURI().toURL();
+        URL url = new File("src/main/java/view/visualizarProduto.fxml").toURI().toURL();
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
         
         Stage telaItemVenda = new Stage();
         
-        ItemVendaController ivc = loader.getController();
+        visualizarProdutoController ivc = loader.getController();
 
         ivc.setStage(telaItemVenda);
 
@@ -107,13 +107,13 @@ public class PrincipalController {
     
     @FXML
     void OnActionMenuViewClientes(ActionEvent event) throws IOException {
-        URL url = new File("src/main/java/view/verClientes.fxml").toURI().toURL();
+        URL url = new File("src/main/java/view/visualizarClientes.fxml").toURI().toURL();
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
         
         Stage telaItemVenda = new Stage();
         
-        VerClientesController ivc = loader.getController();
+        visualizarClientesController ivc = loader.getController();
 
         ivc.setStage(telaItemVenda);
         telaItemVenda.setOnShown(evento -> {

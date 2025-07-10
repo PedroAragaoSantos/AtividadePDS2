@@ -1,8 +1,8 @@
 controller\ClienteViewController.class
-controller\VerClientesController.class
+controller\visualizarClientesController.class
+controller\visualizarProdutoController.class
 model\Usuario.class
 model\ItemVendaDAO.class
-controller\VerClientesController$1.class
 model\GenericDAO.class
 controller\LoginController.class
 model\LoginDAO.class
@@ -19,8 +19,8 @@ principal\App.class
 controller\ProdutoViewController.class
 model\ItemVenda.class
 dal\ConexaoBD.class
-controller\ItemVendaController.class
 util\Validacoes.class
 model\ProdutoDAO.class
 model\VendaDAO.class
+controller\visualizarClientesController$1.class
 util\AlertaUtil.class

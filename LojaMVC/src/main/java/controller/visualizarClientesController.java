@@ -15,7 +15,7 @@ import model.Cliente;
 import model.ClienteDAO;
 import util.AlertaUtil;
 
-public class VerClientesController {
+public class visualizarClientesController {
     
     Stage stage;
     public void setStage(Stage stage){

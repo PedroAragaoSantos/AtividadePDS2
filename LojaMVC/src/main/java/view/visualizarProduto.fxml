@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemVendaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ff6961;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.visualizarProdutoController">
    <children>
       <TableView fx:id="tableViewItemVenda" layoutX="43.0" layoutY="81.0" prefHeight="238.0" prefWidth="515.0">
          <columns>
@@ -16,12 +16,12 @@
             <TableColumn fx:id="colunaValor" minWidth="8.0" prefWidth="101.5999755859375" text="Valor" />
             <TableColumn fx:id="colunaEstoque" minWidth="6.4000244140625" prefWidth="193.60002441406255" text="Quantidade em estoque" />
          </columns></TableView>
-      <Label layoutX="145.0" layoutY="14.0" text="ITENS PARA VENDA">
+      <Label layoutX="164.0" layoutY="20.0" text="ITENS PARA VENDA" textFill="#900000">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="btnFechar" layoutX="275.0" layoutY="347.0" mnemonicParsing="false" onAction="#OnActionFecharTela" text="Fechar" />
-      <Button fx:id="btnExcluir" layoutX="43.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnExcluirOnAction" text="Excluir" />
+      <Button fx:id="btnFechar" layoutX="533.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionFecharTela" text="Fechar" textFill="RED" />
+      <Button fx:id="btnExcluir" layoutX="276.0" layoutY="336.0" mnemonicParsing="false" onAction="#btnExcluirOnAction" text="Excluir" textFill="RED" />
    </children>
 </AnchorPane>
